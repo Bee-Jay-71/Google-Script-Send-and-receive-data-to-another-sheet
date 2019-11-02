@@ -38,7 +38,7 @@ function getData() {
   for (var i = 0; i < data.length; i++) {
     
   // When all data is recieved, it goes to "Sheet1" and write in all data in: A1 and B1.
-                                          // i+1 is because i = zero, and cell A1 is 1. (We whant it the loop to start at 1 and downwards)
+                                          // i+1 is because i = zero, and cell A1 is 1. (We whant the loop to start at 1 and downwards)
                                                // 1 is "A1" and 2 is "B1".
                                                                    // 0 = "A1". 1 = "B1".
     SpreadsheetApp.getActiveSheet().getRange(i+1, 1).setValue(data[i][0]);
