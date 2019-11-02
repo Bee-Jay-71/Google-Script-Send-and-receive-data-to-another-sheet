@@ -1,0 +1,47 @@
+
+// Create two sheets. You can name them what ever you want.
+// In "Sheet1" create two button. First called: Send Data. The other: Get Data. Assign "sendData" & "getData" to those buttons.
+
+function sendData() {
+
+  // In "Sheet1" write something in cell "A1". (1, 1 = A1)
+  var getData = SpreadsheetApp.getActiveSheet().getRange(1,1).getValue();
+  
+  // In "Sheet1" write somthing in cell "B1". (1, 2 = B1)
+  var getData2 = SpreadsheetApp.getActiveSheet().getRange(1,2).getValue();
+  
+    // Now it will choose wich "Sheet" to put the data in. (1 = "Sheet2")
+    var allSheets = SpreadsheetApp.getActive().getSheets();
+
+      var sheet = allSheets[1];
+  
+     // Now it goes to the first empty row, gets data from "Sheet1" and puts it in "Sheet2".
+     sheet.appendRow([getData, getData2]);
+
+}
+
+
+// Now to recieve data from "Sheet2".
+
+function getData() {
+  
+  // allSheets = Searches through all sheets
+  var allSheets = SpreadsheetApp.getActive().getSheets();
+
+  // Specify wich sheet it should search in. (1 = "Sheet2")
+  var sheet = allSheets[1];
+
+  // This code (getDataRange) gets all cells in the specific sheet. getValues = Gets the data from those cells.
+  var data = sheet.getDataRange().getValues();
+  
+  // Loop. Now we loop through all data to recieve everything.
+  for (var i = 0; i < data.length; i++) {
+    
+  // When all data is recieved, it goes to "Sheet1" and write in all data in: A1 and B1.
+                                          // i+1 is because i = zero, and cell A1 is 1. (We whant it the loop to start at 1 and downwards)
+                                               // 1 is "A1" and 2 is "B1".
+                                                                   // 0 = "A1". 1 = "B1".
+    SpreadsheetApp.getActiveSheet().getRange(i+1, 1).setValue(data[i][0]);
+    SpreadsheetApp.getActiveSheet().getRange(i+1, 2).setValue(data[i][1]);
+  }
+}
