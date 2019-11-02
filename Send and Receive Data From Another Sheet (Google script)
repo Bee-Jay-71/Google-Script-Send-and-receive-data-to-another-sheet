@@ -21,7 +21,7 @@ function sendData() {
 }
 
 
-// Now to recieve data from "Sheet2".
+// Now to receive data from "Sheet2".
 
 function getData() {
   
@@ -34,7 +34,7 @@ function getData() {
   // This code (getDataRange) gets all cells in the specific sheet. getValues = Gets the data from those cells.
   var data = sheet.getDataRange().getValues();
   
-  // Loop. Now we loop through all data to recieve everything.
+  // Loop. Now we loop through all data to receive everything.
   for (var i = 0; i < data.length; i++) {
     
   // When all data is recieved, it goes to "Sheet1" and write in all data in: A1 and B1.
