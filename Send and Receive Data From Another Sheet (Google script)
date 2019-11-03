@@ -10,9 +10,10 @@ function sendData() {
   // In "Sheet1" write somthing in cell "B1". (1, 2 = B1)
   var getData2 = SpreadsheetApp.getActiveSheet().getRange(1,2).getValue();
   
-    // Now it will choose wich "Sheet" to put the data in. (1 = "Sheet2")
+    // Now it will choose which "Sheet" to put the data in.
     var allSheets = SpreadsheetApp.getActive().getSheets();
 
+                       //  (1 = "Sheet2")
       var sheet = allSheets[1];
   
      // Now it goes to the first empty row, gets data from "Sheet1" and puts it in "Sheet2".
